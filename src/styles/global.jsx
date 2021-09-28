@@ -41,7 +41,7 @@ export default createGlobalStyle`
         margin-left: -150px;        
     }   
 
-    .image-top {
+    .svg {
         position: absolute;
         margin-top: -100px;
         margin-left: 920px;
@@ -90,7 +90,7 @@ export default createGlobalStyle`
         margin-left: -150px;        
     }   
 
-    .image-top {
+    .svg {
         position: absolute;
         margin-top: -100px;
         margin-left: 920px;
@@ -106,7 +106,7 @@ export default createGlobalStyle`
     }
 }
 
-///////////////////DESKTOP RESULÇAO 1920p///////////////////
+///////////////////DESKTOP RESULÇAO 1720p///////////////////
 @media only screen and (min-width: 1720px){
     html{
     font-family: "Oswald", sans-serif;
@@ -139,7 +139,7 @@ export default createGlobalStyle`
         margin-left: -150px;        
     }   
 
-    .image-top {
+    .svg {
         position: absolute;
         margin-top: -100px;
         margin-left: 920px;

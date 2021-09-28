@@ -84,7 +84,7 @@ export function TotalVacinados({ colaboradoresVacinados }) {
             <div className="totalvacinados">
                 <CardTitle>Total de Colaboradores Totalmente Vacinados:</CardTitle>
                 <Subtitle>(2ª Dose / Dose Única)</Subtitle>
-                <img src={Health} alt="Syringe" className="image-top" />
+                <img src={Health} alt="Syringe" className="svg" />
                 <div className="number">
                     <p><CountUp isCounting end={colaboradoresVacinados} duration={3.2} /></p>
                     <img src="" alt="" />
