@@ -1,0 +1,111 @@
+.selection {
+  padding: 10px 0 10px 0;
+  margin-left: -200px;
+  margin-top: 70px;  
+}
+
+.jag{
+  font-family: "Oswald", sans-serif;
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  background: #82bc00;
+  background-image: linear-gradient(to bottom, #82bc00, #006432);
+  border: 1px solid #006432;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin-top: -680px;
+  margin-left: 800px;
+  cursor: pointer;
+}
+
+.jag:hover{
+  transition: 0.4s ease-out;
+  transform: scale(0.9);
+}
+
+.jag .number {
+  font-family: "Play", sans-serif;
+  font-size: 85px;
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  margin-left: 85px;
+
+}
+
+.mns{
+  font-family: "Oswald", sans-serif;
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  background: #ba257d;
+  background-image: linear-gradient(to bottom, #ba257d, #7f1e5e);
+  border: 1px solid #7f1e5e;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin-top: -680px;
+  margin-left: 1180px;
+  cursor: pointer;
+}
+
+.mns:hover{
+  transition: 0.4s ease-out;
+  transform: scale(0.9);
+}
+
+.mns .number {
+  font-family: "Play", sans-serif;
+  font-size: 85px;
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  margin-left: 85px;
+
+}
+
+.sao{
+  font-family: "Oswald", sans-serif;
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  background: #009add;
+  background-image: linear-gradient(to bottom, #009add, #005486);
+  border: 1px solid #005486;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  margin-top: -680px;
+  margin-left: 1550px;
+  cursor: pointer;
+}
+
+.sao:hover{
+  transition: 0.4s ease-out;
+  transform: scale(0.9);
+}
+
+.sao .number {
+  font-family: "Play", sans-serif;
+  font-size: 85px;
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  margin-left: 85px;
+
+}
+
+.title{
+  font-family: "Oswald", sans-serif;
+  position: absolute;
+  width: 1050px;
+  height: 150px;
+  background: none;
+  margin-top: -850px;
+  margin-left: 800px;
+}

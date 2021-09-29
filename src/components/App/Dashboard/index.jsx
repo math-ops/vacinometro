@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { CardTitle, CardSubtitle, Subtitle } from '../common/Dashboard'
-import Health from '../../styles/assets/Syringe.svg'
-import axios from '../../services/api'
+import { CardTitle, CardSubtitle, Subtitle } from '../../common/Dashboard'
+import Health from '../../../styles/assets/Syringe.svg'
+import axios from '../../../services/api'
 import { CountUp } from 'use-count-up'
 import './style.css'
+import { Link } from 'react-router-dom'
 
 export default function Vacineflex() {
 
@@ -84,7 +85,9 @@ export function TotalVacinados({ colaboradoresVacinados }) {
             <div className="totalvacinados">
                 <CardTitle>Total de Colaboradores Totalmente Vacinados:</CardTitle>
                 <Subtitle>(2ª Dose / Dose Única)</Subtitle>
+                <Link to="/">
                 <img src={Health} alt="Syringe" className="svg" />
+                </Link>
                 <div className="number">
                     <p><CountUp isCounting end={colaboradoresVacinados} duration={3.2} /></p>
                     <img src="" alt="" />
