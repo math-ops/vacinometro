@@ -32,7 +32,7 @@ export function Title() {
 export function Jag() {
     return (
         <>
-        <Link to="/Dashboard">
+        <Link to={{ pathname: "Dashboard", site:"JAG" }}>
             <div className="jag">                                       
                 <ButtonSubtitle>Acessar Vacinômetro:</ButtonSubtitle>
                 <div className="number">
@@ -47,7 +47,7 @@ export function Jag() {
 export function Mns() {
     return (
         <>
-        <Link to="/Dashboard">
+        <Link to={{ pathname: "Dashboard", site:"MNS" }}>
             <div className="mns">
                 <ButtonSubtitle>Acessar Vacinômetro:</ButtonSubtitle>
                 <div className="number">
@@ -64,7 +64,7 @@ export function Mns() {
 export function Sao() {
     return (
         <>
-        <Link to="/Dashboard">
+        <Link to={{ pathname: "Dashboard", site:"SAO" }}>
             <div className="sao">
                 <ButtonSubtitle>Acessar Vacinômetro:</ButtonSubtitle>
                 <div className="number">

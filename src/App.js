@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Footer from './components/common/Footer.jsx'
 import Sites from "./components/App/index.jsx"
 import backgroundImage from './styles/assets/background.png'
-import Vacineflex from "./components/App/Dashboard"
+import Dashboard from "./components/App/Dashboard"
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           </div>            
           <Switch>
             <Route path="/" exact component={Sites} />
-            <Route path="/Dashboard" exact component={Vacineflex} />
+            <Route path="/Dashboard" exact component={Dashboard} />
           </Switch>
         </BrowserRouter>
         <Footer />
