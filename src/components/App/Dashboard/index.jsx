@@ -4,7 +4,7 @@ import Health from '../../../styles/assets/Syringe.svg'
 import axios from '../../../services/api'
 import { CountUp } from 'use-count-up'
 import './style.css'
-import { Link,useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Dashboard() {
 
@@ -15,12 +15,14 @@ export default function Dashboard() {
     const [total_dose_unica, setTotal_dose_unica] = useState(0);
     const [total_alimentos_arrecadados, setTotal_alimentos_arrecadados] = useState(0);
     const [valorPercentual, setValorPercentual] = useState(0);
+    const [sites, setSites] = useState('');
 
     let location = useLocation();
 
     useEffect(() => {
 
-        const {site} = location;
+        const { site } = location;
+        setSites(site);
 
         axios.get(`vacinometro/${site}`)
             .then((res) => {
@@ -67,21 +69,26 @@ export default function Dashboard() {
         }, 30000);
 
         return () => clearInterval(intervalId);
-// eslint-disable-next-line
+        // eslint-disable-next-line
     }, []);
 
-     
+
     return (
-        <>  
+        <>
             <div className="dashboard">
-            <TotalVacinados colaboradoresVacinados={colaboradoresVacinados} />
-            <Elegiveis colaboradores_elegiveis={colaboradores_elegiveis} />
-            <First total_primeira_dose={total_primeira_dose} />
-            <Second total_segunda_dose={total_segunda_dose} />
-            <Unic total_dose_unica={total_dose_unica} />
-            <Alimentos total_alimentos_arrecadados={total_alimentos_arrecadados} />
-            {/* <Sites /> */}
-            <Porcentagem valorPercentual={valorPercentual} />
+                <TotalVacinados colaboradoresVacinados={colaboradoresVacinados} />
+                <Elegiveis colaboradores_elegiveis={colaboradores_elegiveis} />
+                <First total_primeira_dose={total_primeira_dose} />
+                <Second total_segunda_dose={total_segunda_dose} />
+                <Unic total_dose_unica={total_dose_unica} />
+
+                {sites === 'MNS' ?
+                    <Alimentos total_alimentos_arrecadados={total_alimentos_arrecadados} />
+                    :
+                    <Sites site={sites} />
+                }
+
+                <Porcentagem valorPercentual={valorPercentual} />
             </div>
         </>
     )
@@ -95,7 +102,7 @@ export function TotalVacinados({ colaboradoresVacinados }) {
                 <CardTitle>Total de Colaboradores Totalmente Vacinados:</CardTitle>
                 <Subtitle>(2ª Dose / Dose Única)</Subtitle>
                 <Link to="/">
-                <img src={Health} alt="Syringe" className="svg" />
+                    <img src={Health} alt="Syringe" className="svg" />
                 </Link>
                 <div className="number">
                     <p><CountUp isCounting end={colaboradoresVacinados} duration={3.2} /></p>
@@ -176,15 +183,15 @@ export function Alimentos({ total_alimentos_arrecadados }) {
     )
 }
 
-export function Sites(){
-    return(
+export function Sites({site}) {
+    return (
         <>
-        <div className="sites">
-            <CardSubtitle>Visualizando atualmente o Vacinômetro:</CardSubtitle>
-            <div className="number">
-                <p>SAO</p>
+            <div className="sites">
+                <CardSubtitle>Vacinômetro:</CardSubtitle>
+                <div className="number">
+                    <p>{site}</p>
+                </div>
             </div>
-        </div>
         </>
     )
 }
