@@ -70,8 +70,7 @@ export default function Dashboard() {
 // eslint-disable-next-line
     }, []);
 
-
-
+     
     return (
         <>  
             <div className="dashboard">
@@ -81,6 +80,7 @@ export default function Dashboard() {
             <Second total_segunda_dose={total_segunda_dose} />
             <Unic total_dose_unica={total_dose_unica} />
             <Alimentos total_alimentos_arrecadados={total_alimentos_arrecadados} />
+            {/* <Sites /> */}
             <Porcentagem valorPercentual={valorPercentual} />
             </div>
         </>
@@ -172,6 +172,19 @@ export function Alimentos({ total_alimentos_arrecadados }) {
                     <img src="" alt="" />
                 </div>
             </div>
+        </>
+    )
+}
+
+export function Sites(){
+    return(
+        <>
+        <div className="sites">
+            <CardSubtitle>Visualizando atualmente o Vacinômetro:</CardSubtitle>
+            <div className="number">
+                <p>SAO</p>
+            </div>
+        </div>
         </>
     )
 }
