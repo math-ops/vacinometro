@@ -67,7 +67,7 @@ export default function Dashboard() {
         }, 30000);
 
         return () => clearInterval(intervalId);
-
+// eslint-disable-next-line
     }, []);
 
 
