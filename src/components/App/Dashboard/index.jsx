@@ -4,9 +4,9 @@ import Health from '../../../styles/assets/Syringe.svg'
 import axios from '../../../services/api'
 import { CountUp } from 'use-count-up'
 import './style.css'
-import { Link,useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default function Dashboard() {
+export default function Vacineflex() {
 
     const [colaboradoresVacinados, setColaboradoresVacinados] = useState(0);
     const [colaboradores_elegiveis, setColaboradores_elegiveis] = useState(0);
@@ -14,23 +14,17 @@ export default function Dashboard() {
     const [total_segunda_dose, setTotal_segunda_dose] = useState(0);
     const [total_dose_unica, setTotal_dose_unica] = useState(0);
     const [total_alimentos_arrecadados, setTotal_alimentos_arrecadados] = useState(0);
-    const [valorPercentual, setValorPercentual] = useState(0);
-
-    let location = useLocation();
 
     useEffect(() => {
 
-        const {site} = location;
-
-        axios.get(`vacinometro/${site}`)
+        axios.get("vacinometro")
             .then((res) => {
                 const { colaboradores_elegiveis,
                     total_alimentos_arrecadados,
                     total_dose_unica,
                     total_doses_aplicadas,
                     total_primeira_dose,
-                    total_segunda_dose,
-                    percentual,
+                    total_segunda_dose
                 } = res.data[0];
 
                 setColaboradoresVacinados(total_doses_aplicadas);
@@ -39,20 +33,18 @@ export default function Dashboard() {
                 setTotal_segunda_dose(total_segunda_dose);
                 setTotal_dose_unica(total_dose_unica);
                 setTotal_alimentos_arrecadados(total_alimentos_arrecadados);
-                setValorPercentual(percentual);
             });
 
         const intervalId = setInterval(() => {
 
-            axios.get(`vacinometro/${site}`)
+            axios.get("vacinometro")
                 .then((res) => {
                     const { colaboradores_elegiveis,
                         total_alimentos_arrecadados,
                         total_dose_unica,
                         total_doses_aplicadas,
                         total_primeira_dose,
-                        total_segunda_dose,
-                        percentual
+                        total_segunda_dose
                     } = res.data[0];
 
                     setColaboradoresVacinados(total_doses_aplicadas);
@@ -61,7 +53,6 @@ export default function Dashboard() {
                     setTotal_segunda_dose(total_segunda_dose);
                     setTotal_dose_unica(total_dose_unica);
                     setTotal_alimentos_arrecadados(total_alimentos_arrecadados);
-                    setValorPercentual(percentual);
                 });
 
         }, 30000);
@@ -81,7 +72,7 @@ export default function Dashboard() {
             <Second total_segunda_dose={total_segunda_dose} />
             <Unic total_dose_unica={total_dose_unica} />
             <Alimentos total_alimentos_arrecadados={total_alimentos_arrecadados} />
-            <Porcentagem valorPercentual={valorPercentual} />
+            <Porcentagem />
             </div>
         </>
     )
@@ -176,13 +167,13 @@ export function Alimentos({ total_alimentos_arrecadados }) {
     )
 }
 
-export function Porcentagem({ valorPercentual }) {
+export function Porcentagem({ total_dose_unica }) {
     return (
         <>
             <div className="porcento">
                 <CardSubtitle>Ciclo Vacinal Completo:</CardSubtitle>
                 <div className="number">
-                    <p><CountUp isCounting end={valorPercentual} duration={3.2} />%</p>
+                    <p><CountUp isCounting end={total_dose_unica} duration={3.2} />%</p>
                     <img src="" alt="" />
                 </div>
             </div>

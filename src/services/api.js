@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://vacinometro-api.mns.flextronics.com/'
+    baseURL: 'http://localhost:3333/'
     
 });
 
