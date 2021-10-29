@@ -4,7 +4,6 @@ import Health from '../../../styles/assets/Syringe.svg'
 import axios from '../../../services/api'
 import { CountUp } from 'use-count-up'
 import './style.css'
-import { Link, useLocation } from 'react-router-dom'
 
 export default function Dashboard() {
 
@@ -15,16 +14,14 @@ export default function Dashboard() {
     const [total_dose_unica, setTotal_dose_unica] = useState(0);
     const [total_alimentos_arrecadados, setTotal_alimentos_arrecadados] = useState(0);
     const [valorPercentual, setValorPercentual] = useState(0);
-    const [sites, setSites] = useState('');
+    // eslint-disable-next-line
+    const [site, setSite] = useState(process.env.REACT_APP_SITE);
 
-    let location = useLocation();
+    
 
     useEffect(() => {
 
-        const { site } = location;
-        setSites(site);
-
-        axios.get(`vacinometro/${site}`)
+        axios.get(`vacinometro`)
             .then((res) => {
                 const { colaboradores_elegiveis,
                     total_alimentos_arrecadados,
@@ -46,7 +43,7 @@ export default function Dashboard() {
 
         const intervalId = setInterval(() => {
 
-            axios.get(`vacinometro/${site}`)
+            axios.get(`vacinometro`)
                 .then((res) => {
                     const { colaboradores_elegiveis,
                         total_alimentos_arrecadados,
@@ -82,10 +79,10 @@ export default function Dashboard() {
                 <Second total_segunda_dose={total_segunda_dose} />
                 <Unic total_dose_unica={total_dose_unica} />
 
-                {sites === 'MNS' ?
+                {process.env.REACT_APP_DOACAO === 'SIM' ?
                     <Alimentos total_alimentos_arrecadados={total_alimentos_arrecadados} />
                     :
-                    <Sites site={sites} />
+                    <Sites site={site} />
                 }
 
                 <Porcentagem valorPercentual={valorPercentual} />
@@ -101,9 +98,7 @@ export function TotalVacinados({ colaboradoresVacinados }) {
             <div className="totalvacinados">
                 <CardTitle>Total de Colaboradores Totalmente Vacinados:</CardTitle>
                 <Subtitle>(2ª Dose / Dose Única)</Subtitle>
-                <Link to="/">
                     <img src={Health} alt="Syringe" className="svg" />
-                </Link>
                 <div className="number">
                     <p><CountUp isCounting end={colaboradoresVacinados} duration={3.2} /></p>
                     <img src="" alt="" />
